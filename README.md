@@ -1,29 +1,24 @@
-# simpletext
+# SimpleText :rocket:
+![Interface de usuário](https://i.imgur.com/L9vanpI.png)
 
-## Project setup
-```
-npm install
-```
+Editor de texto simples com recursos tipográficos avançados e uma interface limpa e intuitiva.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Objetivo
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Já pensou em ter um bloco de notas com recursos avançados e o mesmo layout limpo? SimpleText tem justamente esses princípios. Ser um bloco de anotações para textos longos e com variações tipográficas diversas.
 
-### Run your unit tests
-```
-npm run test:unit
-```
+## Recursos
 
-### Lints and fixes files
-```
-npm run lint
-```
+- Criação de textos;
+- Tipografia personalizável;
+- Adição de imagens;
+- Integração com API de imagens do Unsplash;
+- Emojis;
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Tecnologias Utilizadas
+
+- Vue JS
+- Vuex
+- Vuetify
+- Vanilla JS
+- Sass
