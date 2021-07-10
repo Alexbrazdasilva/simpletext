@@ -4,15 +4,12 @@
     :data-placeholder="placeholder"
     ref="blockText"
     @input="editText"
-    @click="initWrite"
     :aria-placeholder="text"
   ></div>
 </template>
 
 <script>
-import { mapState } from "vuex";
 export default {
-  name: "v-block-text",
   data: () => ({
     placeholder: "Escreva a partir daqui...",
     text: "",
@@ -21,20 +18,14 @@ export default {
     editText({ target }) {
       this.text = target.innerText;
     },
-    initWrite() {
-      this.$refs.blockText.focus();
-    },
     endEdit() {
       this.$refs.blockText.blur();
     },
   },
-  computed: {
-    ...mapState({
-      elements: (state) => state.elements,
-    }),
-  },
   watch: {
-    //
+    text(e) {
+      e.match(/\/[[a-z]|[A-Z]|[0-9]]\/\s/) && console.log("Sim, tem uma barra");
+    },
   },
 };
 </script>
@@ -45,7 +36,7 @@ export default {
   cursor: text
   outline: none
   border: none
-[contentEditable]:focus-visible, [contentEditable]:focus
+[contentEditable]:focus-visible
   outline: none
   border: none
 </style>

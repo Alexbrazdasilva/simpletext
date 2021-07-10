@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "@views/Home.vue";
-import isAuthenticated from "@middlewares/Auth.js";
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -9,20 +9,14 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
-    beforeEnter: isAuthenticated,
   },
   {
     path: "/about",
     name: "About",
-    beforeEnter: isAuthenticated,
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
     component: () => import("@views/About.vue"),
-  },
-  {
-    path: "/register",
-    alias: "/signup",
-    name: "Register",
-    component: () =>
-      import(/* webpackChunkName: "register" */ "@views/Register.vue"),
   },
 ];
 
