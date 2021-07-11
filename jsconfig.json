@@ -1,0 +1,6 @@
+{
+	"include": [
+		"./src/**/*"
+	],
+	"vetur.format.defaultFormatter.html": "prettier",
+}
