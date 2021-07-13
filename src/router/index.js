@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "@views/Home.vue";
-import isAuthenticated from "@middlewares/Auth.js";
+import { isAuthenticated, isNotAuthenticated } from "@middlewares/Auth.js";
 Vue.use(VueRouter);
 
 const routes = [
@@ -9,18 +9,19 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
-    beforeEnter: isAuthenticated,
+    beforeEnter: isNotAuthenticated,
   },
   {
     path: "/about",
     name: "About",
-    beforeEnter: isAuthenticated,
+    beforeEnter: isNotAuthenticated,
     component: () => import("@views/About.vue"),
   },
   {
     path: "/register",
     alias: "/signup",
     name: "Register",
+    beforeEnter: isAuthenticated,
     component: () =>
       import(/* webpackChunkName: "register" */ "@views/Register.vue"),
   },
