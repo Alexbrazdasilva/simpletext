@@ -9,13 +9,25 @@ const getters = {
 };
 
 const actions = {
-  [SET_USER]: ({ commit }, payload) => {
-    commit(SET_USER, payload);
-  },
+  REGISTER_USER: ({ commit }, payload) =>
+    new Promise((resolve) => commit("REGISTER_USER", payload) ?? resolve()),
+
+  ADD_TODO: ({ commit }, payload) =>
+    new Promise((resolve) => commit("ADD_TODO", payload) ?? resolve()),
+
+  REMOVE_TODO: ({ commit }, payload) =>
+    new Promise((resolve) => commit("ADD_TODO", payload) ?? resolve()),
 };
 
 const mutations = {
-  [SET_USER]: (state, payload) => {
-    state.user = payload;
-  },
+  REGISTER_USER: (state, payload) => (state.user = payload),
+
+  ADD_TODO: (state, payload) => state.todos.push(payload),
+};
+
+export default {
+  state,
+  getters,
+  actions,
+  mutations,
 };
