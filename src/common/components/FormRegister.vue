@@ -2,6 +2,7 @@
   <form>
     <text-field label="Nome" :properties="{ outlined: true }"></text-field>
     <text-field
+      v-model="form.name"
       label="Username"
       :readonly="true"
       hint="Gerado a partir do nome inserido no primeiro campo"
@@ -10,7 +11,7 @@
     ></text-field>
     <div class="d-flex">
       <v-spacer></v-spacer>
-      <v-btn color="primary">Entrar</v-btn>
+      <v-btn @click="submit" color="primary">Entrar</v-btn>
     </div>
   </form>
 </template>
@@ -19,11 +20,17 @@
 import TextField from "@components/TextField.vue";
 export default {
   data: () => ({
-    //
+    form: {
+      name: "",
+      username: "",
+    },
   }),
   methods: {
     onfocus(e) {
       e.preventDefault();
+    },
+    submit() {
+      this.$emit("submit-form");
     },
   },
   components: {

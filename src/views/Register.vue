@@ -9,7 +9,7 @@
           O nome será exibido na parte superior da plataforma, além de dar um
           toque mais pessoal...
         </p>
-        <form-register></form-register>
+        <form-register @submit-form="submitForm"></form-register>
       </div>
     </v-container>
     <v-img
@@ -38,7 +38,11 @@ export default {
       return this.isMobile ? "d-grid" : "d-flex";
     },
   },
-  methods: {},
+  methods: {
+    submitForm() {
+      console.log("submit");
+    },
+  },
   components: {
     FormRegister,
   },
