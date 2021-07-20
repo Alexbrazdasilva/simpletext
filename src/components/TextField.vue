@@ -7,6 +7,7 @@
     :label="label"
     :rules="rules"
     :value="value"
+    :maxlength="maxlength"
     v-bind="properties"
     @click="$emit('click', $event)"
     @input="$emit('input', $event)"
@@ -25,6 +26,7 @@ export default {
     label: String,
     rules: Array,
     value: String,
+    maxlength: Number,
     readonly: {
       default: false,
       type: Boolean,
