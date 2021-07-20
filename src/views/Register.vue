@@ -9,7 +9,7 @@
           O nome será exibido na parte superior da plataforma, além de dar um
           toque mais pessoal...
         </p>
-        <form-register @submit-form="submitForm"></form-register>
+        <form-register @submit="submitForm"></form-register>
       </div>
     </v-container>
     <v-img
@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 import FormRegister from "@common/components/FormRegister.vue";
 export default {
   name: "v-register",
@@ -39,8 +41,16 @@ export default {
     },
   },
   methods: {
-    submitForm() {
-      console.log("submit");
+    ...mapActions(["REGISTER_USER"]),
+
+    submitForm(payload) {
+      this.REGISTER_USER(payload)
+        .then((response) => {
+          console.log("rsp", response);
+        })
+        .catch((e) => {
+          console.log("catch logout", e);
+        });
     },
   },
   components: {
