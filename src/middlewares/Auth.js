@@ -1,7 +1,7 @@
 import store from "./../store";
 export const isAuthenticated = (to, from, next) => {
   if (store.getters.isAuthenticated) {
-    next("/dashboard");
+    next("/");
     return;
   }
   next();

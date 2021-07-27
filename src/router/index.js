@@ -10,6 +10,12 @@ const routes = [
     name: "Home",
     component: Home,
     beforeEnter: isNotAuthenticated,
+    chidren:[
+      {
+        path: "index",
+        name: "index",
+      },
+    ]
   },
   {
     path: "/about",

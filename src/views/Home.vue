@@ -1,16 +1,19 @@
 <template>
-  <container>
-    <block-text></block-text>
-  </container>
+  <div>
+    <app-bar></app-bar>
+    <container><router-view /> </container>
+  </div>
 </template>
 
 <script>
+import AppBar from "@common/components/AppBar.vue";
+import Container from "@common/components/Container.vue";
+
 export default {
   name: "Home",
-
   components: {
-    Container: () => import("@common/components/Container.vue"),
-    BlockText: () => import("@components/BlockText.vue"),
+    Container,
+    AppBar,
   },
 };
 </script>

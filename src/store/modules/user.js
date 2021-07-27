@@ -1,11 +1,13 @@
 const state = {
   user: {},
   todos: [],
+  isAuthenticated: false,
 };
 
 const getters = {
   user: (state) => state.user,
   todos: (state) => state.todos,
+  isAuthenticated: (state) => state.isAuthenticated,
 };
 
 const actions = {
@@ -20,7 +22,10 @@ const actions = {
 };
 
 const mutations = {
-  REGISTER_USER: (state, payload) => (state.user = payload),
+  REGISTER_USER: (state, payload) => {
+    state.user = payload;
+    state.isAuthenticated = true;
+  },
 
   ADD_TODO: (state, payload) => state.todos.push(payload),
 };
