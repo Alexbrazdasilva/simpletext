@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar color="#fcb69f" dark src="https://picsum.photos/1920/1080?random">
+  <v-app-bar color="#fcb69f" dark>
     <template v-slot:img="{ props }">
       <v-img
         v-bind="props"
@@ -7,7 +7,7 @@
       ></v-img>
     </template>
 
-    <v-app-bar-nav-icon></v-app-bar-nav-icon>
+    <v-app-bar-nav-icon @click="openDrawer"></v-app-bar-nav-icon>
 
     <v-toolbar-title>{{ title }}</v-toolbar-title>
   </v-app-bar>
@@ -27,10 +27,12 @@ export default {
     };
   },
   mounted() {
+    this.drawer = this.openDrawer;
   },
-
   methods: {
-    
+    openDrawer: function () {
+      this.$emit("open-drawer");
+    },
   },
 };
 </script>

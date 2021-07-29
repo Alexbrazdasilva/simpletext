@@ -1,6 +1,5 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "@views/Home.vue";
 import { isAuthenticated, isNotAuthenticated } from "@middlewares/Auth.js";
 Vue.use(VueRouter);
 
@@ -8,14 +7,8 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home,
     beforeEnter: isNotAuthenticated,
-    chidren:[
-      {
-        path: "index",
-        name: "index",
-      },
-    ]
+    component: () => import("@views/Home.vue"),
   },
   {
     path: "/about",
@@ -31,6 +24,7 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "register" */ "@views/Register.vue"),
   },
+  { path: "*", redirect: "/" },
 ];
 
 const router = new VueRouter({

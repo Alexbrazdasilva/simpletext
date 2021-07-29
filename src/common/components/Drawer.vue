@@ -11,12 +11,12 @@
     >
       <v-list-item class="grey lighten-4">
         <v-list-item-content>
-          <v-list-item-title class="title light-blue--text"
-            >Time</v-list-item-title
-          >
-          <v-list-item-subtitle class="light-blue--text"
-            >To Work</v-list-item-subtitle
-          >
+          <v-list-item-title class="title light-blue--text">{{
+            title
+          }}</v-list-item-title>
+          <v-list-item-subtitle class="light-blue--text">{{
+            subTitle
+          }}</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
       <v-divider></v-divider>
@@ -48,12 +48,19 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
 export default {
   props: {
     drawer: {
       type: Boolean,
       default: false,
+    },
+    title: {
+      type: String,
+      default: "",
+    },
+    subTitle: {
+      type: String,
+      default: "",
     },
     drawerItens: {
       type: Array,
@@ -69,9 +76,6 @@ export default {
   methods: {
     logout() {
       //
-    },
-    handleClickOutside() {
-      console.log("aquiii");
     },
   },
 };
